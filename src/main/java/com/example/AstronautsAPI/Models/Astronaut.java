@@ -3,6 +3,7 @@ package com.example.AstronautsAPI.Models;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "astronauts")
 public class Astronaut {
 
     @Id
