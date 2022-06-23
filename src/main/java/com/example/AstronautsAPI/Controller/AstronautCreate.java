@@ -10,15 +10,21 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class AstronautCreate {
 
-    @Autowired(required=true)
-    public AstronautRepository astronautRepository;
+    @Autowired(required = false)
+    private AstronautRepository astronautRepository;
 
     @GetMapping ("/")
     public Response responseEntity() {
-        Astronaut astronaut = new Astronaut("Yuri");
-        astronautRepository.save(astronaut);
-        Response response = new Response("Yes", 200);
-        return response;
+
+        try {
+            Astronaut astronaut = new Astronaut("Yuri");
+            astronautRepository.save(astronaut);
+            Response response = new Response("Yes", 200);
+            return response;
+        } catch (Exception e) {
+            Response response = new Response("No", 200);
+            return response;
+        }
     }
 
 }

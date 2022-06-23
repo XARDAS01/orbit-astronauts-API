@@ -16,6 +16,6 @@ public class Response {
     }
 
     public String getResponse() {
-        return "Error";
+        return this.message;
     }
 }
