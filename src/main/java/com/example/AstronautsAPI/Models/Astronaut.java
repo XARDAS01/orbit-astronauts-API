@@ -9,18 +9,17 @@ public class Astronaut {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
-    private String name, surname, power, location, desc;
+    private String name, surname, power, location;
     private int age;
 
     public Astronaut() {
     }
 
-    public Astronaut(String name, String surname, String power, String location, String desc, int age) {
+    public Astronaut(String name, String surname, String power, String location, int age) {
         this.name = name;
         this.surname = surname;
         this.power = power;
         this.location = location;
-        this.desc = desc;
         this.age = age;
     }
 
@@ -62,14 +61,6 @@ public class Astronaut {
 
     public void setLocation(String location) {
         this.location = location;
-    }
-
-    public String getDesc() {
-        return desc;
-    }
-
-    public void setDesc(String desc) {
-        this.desc = desc;
     }
 
     public int getAge() {

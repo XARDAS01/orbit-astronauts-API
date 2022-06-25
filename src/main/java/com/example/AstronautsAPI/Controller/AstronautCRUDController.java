@@ -24,11 +24,10 @@ public class AstronautCRUDController {
             @RequestParam(value = "surname") String surname,
             @RequestParam(value = "age") int age,
             @RequestParam(value = "power") String power,
-            @RequestParam(value = "location") String location,
-            @RequestParam(value = "desc") String desc
+            @RequestParam(value = "location") String location
     ) {
 
-        Astronaut astronaut = new Astronaut(name, surname, power, location, desc, age);
+        Astronaut astronaut = new Astronaut(name, surname, power, location, age);
         astronautRepository.save(astronaut);
 
         return "Create success";
@@ -66,8 +65,7 @@ public class AstronautCRUDController {
             @RequestParam(value = "surname") String surname,
             @RequestParam(value = "age") int age,
             @RequestParam(value = "power") String power,
-            @RequestParam(value = "location") String location,
-            @RequestParam(value = "desc") String desc
+            @RequestParam(value = "location") String location
     ) {
         Astronaut astronaut = astronautRepository.findById(id).get();
         astronaut.setName(name);
@@ -75,7 +73,6 @@ public class AstronautCRUDController {
         astronaut.setAge(age);
         astronaut.setPower(power);
         astronaut.setLocation(location);
-        astronaut.setDesc(desc);
         astronautRepository.save(astronaut);
 
         return "Update success";
