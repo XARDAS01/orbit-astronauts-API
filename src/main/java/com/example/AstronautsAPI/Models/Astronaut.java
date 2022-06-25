@@ -9,7 +9,7 @@ public class Astronaut {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
-    private String name, surname, power, location;
+    private String name, surname, power, location, avatar;
     private int age;
 
     public Astronaut() {
@@ -21,6 +21,20 @@ public class Astronaut {
         this.power = power;
         this.location = location;
         this.age = age;
+        this.avatar = generateAvatar();
+    }
+
+    private String generateAvatar() {
+        String[] avatars = new String[] {
+                "avatar1",
+                "avatar2",
+                "avatar3",
+                "avatar4"
+        };
+        int min = 1;
+        int max = avatars.length;
+        int random_int = (int)Math.floor(Math.random()*(max-min+1)+min);
+        return avatars[random_int];
     }
 
     public Long getId() {
@@ -69,5 +83,13 @@ public class Astronaut {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 }

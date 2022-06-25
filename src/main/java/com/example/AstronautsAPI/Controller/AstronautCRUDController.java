@@ -59,7 +59,7 @@ public class AstronautCRUDController {
     }
 
     @PostMapping("/astronautUpdate")
-    private String astronautCreate(
+    private long astronautCreate(
             @RequestParam(value = "id") Long id,
             @RequestParam(value = "name") String name,
             @RequestParam(value = "surname") String surname,
@@ -75,7 +75,7 @@ public class AstronautCRUDController {
         astronaut.setLocation(location);
         astronautRepository.save(astronaut);
 
-        return "Update success";
+        return astronaut.getId();
     }
 
     @PostMapping("/astronautDeleteByID")

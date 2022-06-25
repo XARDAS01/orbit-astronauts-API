@@ -17,7 +17,7 @@ public interface AstronautRepository extends CrudRepository<Astronaut, Long> {
 
     Astronaut findById (long id);
 
-    Astronaut findByName (String name);
+    // Astronaut findByName (String name);
 
     ArrayList<Astronaut> findAll();
 
