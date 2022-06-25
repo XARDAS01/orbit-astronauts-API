@@ -1,6 +1,5 @@
 package com.example.AstronautsAPI.Controller;
 
-import com.example.AstronautsAPI.Entity.Response;
 import com.example.AstronautsAPI.Models.Astronaut;
 import com.example.AstronautsAPI.Repo.AstronautRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.util.ArrayList;
-import java.util.Optional;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
@@ -26,10 +24,11 @@ public class AstronautCRUDController {
             @RequestParam(value = "surname") String surname,
             @RequestParam(value = "age") int age,
             @RequestParam(value = "power") String power,
-            @RequestParam(value = "location") String location
+            @RequestParam(value = "location") String location,
+            @RequestParam(value = "desc") String desc
     ) {
 
-        Astronaut astronaut = new Astronaut(name, surname, power, location, age);
+        Astronaut astronaut = new Astronaut(name, surname, power, location, desc, age);
         astronautRepository.save(astronaut);
 
         return "Create success";
@@ -67,7 +66,8 @@ public class AstronautCRUDController {
             @RequestParam(value = "surname") String surname,
             @RequestParam(value = "age") int age,
             @RequestParam(value = "power") String power,
-            @RequestParam(value = "location") String location
+            @RequestParam(value = "location") String location,
+            @RequestParam(value = "desc") String desc
     ) {
         Astronaut astronaut = astronautRepository.findById(id).get();
         astronaut.setName(name);
@@ -75,6 +75,7 @@ public class AstronautCRUDController {
         astronaut.setAge(age);
         astronaut.setPower(power);
         astronaut.setLocation(location);
+        astronaut.setDesc(desc);
         astronautRepository.save(astronaut);
 
         return "Update success";
