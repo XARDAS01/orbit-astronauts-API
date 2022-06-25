@@ -19,7 +19,7 @@ public class AstronautCRUDController {
     private AstronautRepository astronautRepository;
 
     @PostMapping("/astronautCreate")
-    private String astronautCreate(
+    private long astronautCreate(
             @RequestParam(value = "name") String name,
             @RequestParam(value = "surname") String surname,
             @RequestParam(value = "age") int age,
@@ -30,7 +30,7 @@ public class AstronautCRUDController {
         Astronaut astronaut = new Astronaut(name, surname, power, location, age);
         astronautRepository.save(astronaut);
 
-        return "Create success";
+        return astronaut.getId();
     }
 
     @GetMapping("/astronautGetByID")
