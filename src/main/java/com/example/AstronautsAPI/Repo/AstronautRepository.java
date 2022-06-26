@@ -12,12 +12,7 @@ import java.util.List;
 @Repository
 public interface AstronautRepository extends CrudRepository<Astronaut, Long> {
 
-//    @Query("SELECT * FROM astronauts p WHERE p.id = :id")
-//    List<Astronaut> findAstronautByID(@Param("id") Long id);
-
     Astronaut findById (long id);
-
-    // Astronaut findByName (String name);
 
     ArrayList<Astronaut> findAll();
 

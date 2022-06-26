@@ -31,7 +31,7 @@ public class Astronaut {
                 "avatar3",
                 "avatar4"
         };
-        int min = 1;
+        int min = 0;
         int max = avatars.length;
         int random_int = (int)Math.floor(Math.random()*(max-min+1)+min);
         return avatars[random_int];
